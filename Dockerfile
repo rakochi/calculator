@@ -17,15 +17,15 @@ COPY . /var/www/html
 RUN apt-get autoremove
 
 # Configure MySQL
-RUN sed -i 's/bind-address/#bind-address/' /etc/mysql/my.cnf
+#RUN sed -i 's/bind-address/#bind-address/' /etc/mysql/my.cnf
 
 # Create new MySQL admin user
-RUN service mysql start; mysql -u root -e "CREATE USER 'admin'@'%' IDENTIFIED BY 'pass';";mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;"; 
+#RUN service mysql start; mysql -u root -e "CREATE USER 'admin'@'%' IDENTIFIED BY 'pass';";mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;"; 
 
 #Start MySQL
-RUN service mysql start
-RUN mysql
+#RUN service mysql start
+#RUN mysql
 
 #Create database and table
-RUN mysql < /var/www/html/startup.sql 
+#RUN mysql < /var/www/html/startup.sql 
 
